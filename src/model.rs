@@ -4,6 +4,7 @@ use serde::Deserialize;
 
 // https://github.com/huggingface/transformers/blob/b05df6611e6e3e6834acca2b50baeb7cdd5fbe3c/src/transformers/models/camembert/configuration_camembert.py#L29
 #[derive(Debug, Clone, Deserialize)]
+#[allow(dead_code)]
 pub struct Config {
     pub vocab_size: usize,
     pub hidden_size: usize,
@@ -20,7 +21,6 @@ pub struct Config {
     pub bos_token_id: u32,
     pub eos_token_id: u32,
     pub position_embedding_type: String,
-    pub use_cache: bool,
     pub classifier_dropout: Option<f64>
 }
 
@@ -42,7 +42,6 @@ impl Default for Config {
             bos_token_id: 0,
             eos_token_id: 2,
             position_embedding_type: "absolute".to_string(),
-            use_cache: true,
             classifier_dropout: None
         }
     }

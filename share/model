@@ -1,0 +1,16 @@
+# Model Link
+https://huggingface.co/airesearch/wangchanberta-base-att-spm-uncased/tree/main
+
+# Extra Preparations
+The model downloaded from the link above requires 3 files needed to be presented to create a Wangchanberta instance,
+* config.json
+* pytorch_model.bin
+* sentencepiece.bpe.model
+
+There are some modifications needed for pytorch_model.bin also,
+* Convert the older version of the model to a newer version so that candle can support it, [see here](https://github.com/phenylshima/segmentation-models-burn/issues/2#issuecomment-2486888676)
+* Change the name of layers to match generic naming,
+  ```
+  roberta.embeddings.foo... -> embeddings.foo ...
+  roberta.encoder.bar...    -> encoder.bar ...
+  ```

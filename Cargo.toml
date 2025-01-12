@@ -3,6 +3,12 @@ name = "wangchanberta-candle"
 version = "0.1.0"
 edition = "2021"
 
+[lib]
+path = "src/lib.rs"
+crate-type = ["lib"]
+bench = false
+test = true  # Due to usage of ML models
+
 [dependencies]
 candle-core = { git = "https://github.com/huggingface/candle.git", version = "0.8.1" }
 candle-nn = { git = "https://github.com/huggingface/candle.git", version = "0.8.1" }
@@ -11,6 +17,5 @@ serde_json = "1.0.135"
 serde_plain = "1.0.2"
 tokenizers = "0.21.0"
 tracing = "0.1.41"
-
-[dev-dependencies]
 anyhow = "1.0.95"
+sentencepiece = "0.11.2"
